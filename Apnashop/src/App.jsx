@@ -1,11 +1,21 @@
-import React from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import UserRoutes from "./Frontend/user/UserRoutes";
+import AdminRoutes from "./Frontend/admin/AdminRoutes";
 
-const App = () => {
+function App() {
   return (
-    <div className='bg-blue-500 p-4'>
-      App
-    </div>
-  )
+    <BrowserRouter>
+      <Routes>
+
+        {/* USER WEBSITE */}
+        <Route path="/*" element={<UserRoutes />} />
+
+        {/* ADMIN PANEL */}
+        <Route path="/admin/*" element={<AdminRoutes />} />
+
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
